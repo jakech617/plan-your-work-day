@@ -26,7 +26,7 @@ textarea{
 }
 
 .time-block{
-  text-align: center;
+  /* text-align: center; */
   border-radius: 15px;
 }
 
@@ -63,9 +63,17 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  background-image: url('../images/save.svg');
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+/* .col-md-1 {
+  padding-left: 0px;
+} */
