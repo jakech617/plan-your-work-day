@@ -1,4 +1,4 @@
-var currentDay = $('#currentDay');
+var currentDay = $("#currentDay");
 
 setInterval(function() {
     currentDay.text(moment().format('[Today is] MMMM Do, YYYY kk:mm:ss'));
@@ -11,7 +11,7 @@ $(".saveBtn").on("click", function () {
     var text = $(this).siblings(".description").val();
     
     localStorage.setItem(time, text);
-})
+});
 
 $("#hour-9 .description").val(localStorage.getItem("hour-9"));
 $("#hour-10 .description").val(localStorage.getItem("hour-10"));
@@ -22,3 +22,30 @@ $("#hour-14 .description").val(localStorage.getItem("hour-14"));
 $("#hour-15 .description").val(localStorage.getItem("hour-15"));
 $("#hour-16 .description").val(localStorage.getItem("hour-16"));
 $("#hour-17 .description").val(localStorage.getItem("hour-17"));
+
+function hourCheck() {
+    var currentHour = moment().hour();
+
+    $(".time-block").each(function() {
+    
+    var blockHour = parseInt($(this).attr("id").split("hour-")[1]);
+
+        if (blockHour < currentHour) {
+            $(this).addClass("past");
+            $(this).removeClass("present");
+            $(this).removeClass("future");
+        }
+        else if (blockHour === currentHour) {
+            $(this).removeClass("past");
+            $(this).addClass("present");
+            $(this).removeClass("future");
+        }
+        else {
+            $(this).removeClass("past");
+            $(this).removeClass("present");
+            $(this).addClass("future");
+        }
+    });
+};
+
+hourCheck();
